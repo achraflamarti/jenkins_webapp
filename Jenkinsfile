@@ -6,7 +6,7 @@ pipeline {
         jdk 'Java17'
     }
     environment {
-        APP_PORT = '8086'
+        APP_PORT = '8080'
     }
 
     stages {
@@ -54,7 +54,7 @@ pipeline {
             steps {
                 sh '''
                     echo "=== TEST HTTP LOCAL ==="
-                    curl -v --max-time 5 http://127.0.0.1:8086/ || true
+                    curl -v --max-time 5 http://127.0.0.1:8080/ || true
 
                     echo "=== LOGS SPRING BOOT ==="
                     tail -50 app.log || true
