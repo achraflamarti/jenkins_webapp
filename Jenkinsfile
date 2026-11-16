@@ -53,7 +53,7 @@ pipeline {
 
     post {
         success {
-            echo "Déploiement réussi. Accessible sur http://jenkins.sip-academy.com:${APP_PORT}"
+            echo "Déploiement réussi. Accessible sur https://jenkins.sip-academy.com:${APP_PORT}"
         }
         failure {
             echo "Le build ou le déploiement a échoué."
