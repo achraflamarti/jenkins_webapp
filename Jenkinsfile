@@ -6,7 +6,7 @@ pipeline {
         jdk 'Java17'
     }
     environment {
-        APP_PORT = '8383'
+        APP_PORT = '8086'
     }
 
     stages {
@@ -14,7 +14,7 @@ pipeline {
         stage('1. Checkout') {
             steps {
                 git branch: 'master', // ou 'master', adaptez à votre branche
-                    url: 'https://github.com/MezghichGit/jenkins_webapp.git'
+                    url: 'https://github.com/achraflamarti/jenkins_webapp.git'
                     
             }
         }
