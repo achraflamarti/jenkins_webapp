@@ -10,7 +10,7 @@ pipeline {
         stage('1. Checkout') {
             steps {
                 git branch: 'master', // ou 'master', adaptez à votre branche
-                    url: 'https://github.com/achraflamarti/jenkins_webapp.git',
+                    url: 'https://github.com/achraflamarti/jenkins_webapp.git'
                     
             }
         }
