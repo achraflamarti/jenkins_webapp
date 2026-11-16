@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Centre IBCGOS</title>
+<style>
+  :root{
+    --accent:#1E6F5C;
+    --accent-dark:#154E41;
+    --accent-soft:#E6F2EF;
+    --bg:#FFFFFF;
+    --section-bg:#F7F8F7;
+    --card-bg:#FFFFFF;
+    --text:#16181A;
+    --text-muted:#5B6267;
+    --border:#E7E9E8;
+  }
+  *{box-sizing:border-box; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;}
+  body{margin:0; background:var(--bg); color:var(--text);}
+  a{color:inherit; text-decoration:none;}
+  ul{margin:0; padding:0;}
+  .container{max-width:1360px; margin:0 auto; padding:0 64px;}
+
+  /* NAVBAR */
+  header{display:flex; align-items:center; justify-content:space-between; padding:20px 64px; max-width:1360px; margin:0 auto;}
+  .logo{display:flex; align-items:center; gap:10px;}
+  .logo-badge{width:38px; height:38px; border-radius:10px; background:var(--accent); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:16px;}
+  .logo-text{font-size:19px; font-weight:700; letter-spacing:-0.02em;}
+  nav{display:flex; align-items:center; gap:36px; font-size:15px; font-weight:500;}
+  .nav-link:hover{opacity:0.75;}
+  .cta-primary{background:var(--accent); color:#fff; padding:11px 22px; border-radius:8px; font-size:14px; font-weight:600; transition: all 0.2s ease;}
+  .cta-primary:hover{transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,0,0,0.15);}
+
+  /* HERO */
+  .hero{max-width:1360px; margin:0 auto; padding:72px 64px 96px; display:flex; align-items:center; gap:64px; flex-wrap:wrap;}
+  .hero-text{flex:1 1 480px; min-width:320px;}
+  .badge{display:inline-block; background:var(--accent-soft); color:var(--accent); font-size:13px; font-weight:600; padding:6px 14px; border-radius:999px; margin-bottom:24px;}
+  .hero-text h1{font-size:52px; line-height:1.08; font-weight:800; letter-spacing:-0.025em; margin:0 0 24px;}
+  .hero-text p{font-size:18px; line-height:1.6; color:var(--text-muted); max-width:480px; margin:0 0 36px;}
+  .hero-actions{display:flex; gap:16px; flex-wrap:wrap;}
+  .cta-primary-lg{background:var(--accent); color:#fff; padding:15px 28px; border-radius:10px; font-size:15px; font-weight:600; display:inline-block; transition: all 0.2s ease;}
+  .cta-primary-lg:hover{transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,0,0,0.15);}
+  .cta-secondary{border:1.5px solid var(--border); padding:15px 28px; border-radius:10px; font-size:15px; font-weight:600; display:inline-block;}
+  .hero-visual{flex:1 1 380px; min-width:300px; display:flex; justify-content:center;}
+  .hero-blob{width:100%; max-width:420px; aspect-ratio:1/0.95; border-radius:24px; background:linear-gradient(145deg, var(--accent), var(--accent-dark)); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;}
+  .hero-blob .circle1{position:absolute; width:240px; height:240px; border-radius:50%; background:rgba(255,255,255,0.08); top:-60px; right:-60px;}
+  .hero-blob .circle2{position:absolute; width:160px; height:160px; border-radius:50%; background:rgba(255,255,255,0.08); bottom:-40px; left:-30px;}
+  .hero-blob span{color:#fff; font-size:72px; font-weight:800; letter-spacing:-0.03em; z-index:1;}
+
+  /* STATS */
+  .stats-section{max-width:1360px; margin:0 auto; padding:0 64px 96px;}
+  .stats-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:24px; border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:40px 0;}
+  .stat{text-align:center;}
+  .stat-num{font-size:36px; font-weight:800; color:var(--accent);}
+  .stat-label{font-size:14px; color:var(--text-muted); margin-top:6px;}
+
+  /* PROGRAMMES */
+  .programmes{max-width:1360px; margin:0 auto; padding:0 64px 96px;}
+  .section-heading{text-align:center; max-width:600px; margin:0 auto 56px;}
+  .section-heading h2{font-size:34px; font-weight:800; letter-spacing:-0.02em; margin:0 0 14px;}
+  .section-heading p{font-size:16px; color:var(--text-muted); line-height:1.6; margin:0;}
+  .cards-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:28px;}
+  .card{border:1px solid var(--border); border-radius:16px; padding:32px; background:var(--card-bg); transition: all 0.2s ease;}
+  .card:hover{transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.08);}
+  .card-icon{width:48px; height:48px; border-radius:12px; background:var(--accent-soft); display:flex; align-items:center; justify-content:center; margin-bottom:20px;}
+  .card h3{font-size:19px; font-weight:700; margin:0 0 10px;}
+  .card p{font-size:15px; color:var(--text-muted); line-height:1.6; margin:0;}
+
+  /* A PROPOS */
+  .about{background:var(--section-bg); padding:88px 0;}
+  .about-inner{max-width:1360px; margin:0 auto; padding:0 64px; display:flex; gap:64px; align-items:center; flex-wrap:wrap;}
+  .about-text{flex:1 1 420px; min-width:300px;}
+  .about-text h2{font-size:32px; font-weight:800; letter-spacing:-0.02em; margin:0 0 20px;}
+  .about-text > p{font-size:16px; line-height:1.7; color:var(--text-muted); margin:0 0 28px;}
+  .about-list{list-style:none; display:flex; flex-direction:column; gap:16px;}
+  .about-list li{display:flex; gap:12px; align-items:flex-start;}
+  .check{width:24px; height:24px; border-radius:50%; background:var(--accent); color:#fff; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700;}
+  .about-list span.text{font-size:15px; line-height:1.6;}
+  .steps-grid{flex:1 1 380px; min-width:300px; display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  .step{background:var(--card-bg); border-radius:16px; padding:28px; border:1px solid var(--border);}
+  .step.offset{margin-top:28px;}
+  .step-num{font-size:28px; font-weight:800; color:var(--accent);}
+  .step-label{font-size:14px; font-weight:600; margin-top:8px;}
+
+  /* CONTACT */
+  .contact{max-width:1360px; margin:0 auto; padding:96px 64px; text-align:center;}
+  .contact h2{font-size:32px; font-weight:800; letter-spacing:-0.02em; margin:0 0 16px;}
+  .contact p{font-size:16px; color:var(--text-muted); max-width:500px; margin:0 auto 32px; line-height:1.6;}
+  .contact .cta-primary-lg{padding:16px 36px;}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--border); padding:32px 64px; max-width:1360px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;}
+  .footer-copy{font-size:14px; color:var(--text-muted);}
+  .footer-links{display:flex; gap:24px; font-size:14px; color:var(--text-muted);}
+
+  @media (max-width: 720px){
+    header, .hero, .stats-section, .programmes, .about-inner, .contact, footer{padding-left:24px; padding-right:24px;}
+    nav{display:none;}
+    .hero-text h1{font-size:38px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-badge">IB</div>
+    <span class="logo-text">Centre IBCGOS</span>
+  </div>
+  <nav>
+    <a href="#" class="nav-link">Accueil</a>
+    <a href="#programmes" class="nav-link">Programmes</a>
+    <a href="#apropos" class="nav-link">À propos</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </nav>
+  <a href="#contact" class="cta-primary">Nous contacter</a>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <div class="badge">Bienvenue au Centre IBCGOS</div>
+    <h1>Apprendre, se former,<br>progresser ensemble.</h1>
+    <p>Le Centre IBCGOS accompagne particuliers et professionnels avec des formations de qualité, un encadrement personnalisé et des parcours adaptés à vos objectifs.</p>
+    <div class="hero-actions">
+      <a href="#programmes" class="cta-primary-lg">Découvrir nos programmes</a>
+      <a href="#contact" class="cta-secondary">Prendre rendez-vous</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-blob">
+      <div class="circle1"></div>
+      <div class="circle2"></div>
+      <span>IBCGOS</span>
+    </div>
+  </div>
+</section>
+
+<section class="stats-section">
+  <div class="stats-grid">
+    <div class="stat">
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Apprenants formés</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">12</div>
+      <div class="stat-label">Programmes actifs</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">98%</div>
+      <div class="stat-label">Taux de satisfaction</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">15+</div>
+      <div class="stat-label">Formateurs experts</div>
+    </div>
+  </div>
+</section>
+
+<section id="programmes" class="programmes">
+  <div class="section-heading">
+    <h2>Nos programmes</h2>
+    <p>Des parcours pensés pour répondre aux besoins réels du terrain et du marché.</p>
+  </div>
+  <div class="cards-grid">
+    <div class="card">
+      <div class="card-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E6F5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <h3>Formation professionnelle</h3>
+      <p>Des sessions intensives orientées compétences, pour une insertion rapide sur le marché du travail.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E6F5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
+      </div>
+      <h3>Ateliers &amp; séminaires</h3>
+      <p>Des rencontres thématiques animées par des experts, en présentiel ou à distance.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E6F5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+      </div>
+      <h3>Accompagnement individuel</h3>
+      <p>Un suivi personnalisé pour construire un parcours adapté à votre projet et à votre rythme.</p>
+    </div>
+  </div>
+</section>
+
+<section id="apropos" class="about">
+  <div class="about-inner">
+    <div class="about-text">
+      <h2>Pourquoi choisir le Centre IBCGOS&nbsp;?</h2>
+      <p>Notre mission est simple&nbsp;: offrir un cadre d'apprentissage exigeant, humain et tourné vers des résultats concrets.</p>
+      <ul class="about-list">
+        <li><span class="check">✓</span><span class="text">Des formateurs expérimentés issus du terrain</span></li>
+        <li><span class="check">✓</span><span class="text">Des groupes à taille humaine pour un vrai suivi</span></li>
+        <li><span class="check">✓</span><span class="text">Des contenus actualisés en continu</span></li>
+      </ul>
+    </div>
+    <div class="steps-grid">
+      <div class="step"><div class="step-num">01</div><div class="step-label">Évaluation</div></div>
+      <div class="step offset"><div class="step-num">02</div><div class="step-label">Formation</div></div>
+      <div class="step"><div class="step-num">03</div><div class="step-label">Pratique</div></div>
+      <div class="step offset"><div class="step-num">04</div><div class="step-label">Certification</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Prêt à commencer&nbsp;?</h2>
+  <p>Contactez-nous dès aujourd'hui pour en savoir plus sur nos programmes et planifier votre inscription.</p>
+  <a href="#" class="cta-primary-lg">Nous écrire</a>
+</section>
+
+<footer>
+  <span class="footer-copy">© 2026 Centre IBCGOS. Tous droits réservés.</span>
+  <div class="footer-links">
+    <a href="#" class="nav-link">Mentions légales</a>
+    <a href="#" class="nav-link">Confidentialité</a>
+  </div>
+</footer>
+
+</body>
+</html>
