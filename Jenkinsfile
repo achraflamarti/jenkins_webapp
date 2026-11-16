@@ -1,8 +1,12 @@
 pipeline {
     agent any
 
+	tools {
+        maven 'Maven310' // doit correspondre au nom donné dans Global Tool Configuration
+        jdk 'Java17'
+    }
     environment {
-        APP_PORT = '8086'
+        APP_PORT = '8383'
     }
 
     stages {
@@ -10,14 +14,14 @@ pipeline {
         stage('1. Checkout') {
             steps {
                 git branch: 'master', // ou 'master', adaptez à votre branche
-                    url: 'https://github.com/achraflamarti/jenkins_webapp.git'
+                    url: 'https://github.com/MezghichGit/jenkins_webapp.git'
                     
             }
         }
 
         stage('2. Build JAR') {
             steps {
-                sh 'clean package -DskipTests'
+                sh 'mvn clean package -DskipTests'
             }
         }
 
@@ -49,7 +53,7 @@ pipeline {
 
     post {
         success {
-            echo "Déploiement réussi. Accessible sur https://jenkins.sip-academy.com:${APP_PORT}"
+            echo "Déploiement réussi. Accessible sur http://jenkins.sip-academy.com:${APP_PORT}"
         }
         failure {
             echo "Le build ou le déploiement a échoué."
